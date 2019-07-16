@@ -1,4 +1,5 @@
 import { GET_COUNTRIES } from "./../actions"
+import {supportedCurrencyCode} from "../supportedCurrencies";
 
 const initialState = {
 	countries: []
@@ -24,6 +25,6 @@ function getCountriesInfo(data) {
 			code: c.alpha3Code
 		}
 	}).filter(c => {
-		return c.currencyCode !== 'USD'
+		return supportedCurrencyCode.indexOf(c.currencyCode) > -1
 	})
 }
